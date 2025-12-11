@@ -1,11 +1,12 @@
 # Site settings
 title: Jonathan Zajac's Personal Website
-email: zajac028@umn.edu
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
+email: zajac028@umn.edu
 github_username: Jonathan-Zajac
+linkedin_username: jonathan-zajac-35440b340
 
 # Build settings
 markdown: kramdown
