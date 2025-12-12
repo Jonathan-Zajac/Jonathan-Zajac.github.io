@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publications | Jonathan Zajac</title>
+
+    <!-- Bootstrap CSS (use your existing link if already imported) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            padding-top: 80px;
+        }
+
+        .pub-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: box-shadow 0.25s ease;
+        }
+
+        .pub-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .filters {
+            margin-bottom: 25px;
+        }
+
+        .filter-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .pub-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .pub-meta {
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row text-center">
+        <h1>Publications</h1>
+        <hr class="primary">
+    </div>
+
+    <!-- Filters -->
+    <div class="row filters text-center">
+
+        <span class="filter-label">Filter by Year:</span>
+        <select id="yearFilter">
+            <option value="all">All</option>
+            <!-- Add more years as needed -->
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+        </select>
+
+        &nbsp;&nbsp;&nbsp;
+
+        <span class="filter-label">Filter by Area:</span>
+        <select id="areaFilter">
+            <option value="all">All</option>
+            <!-- Add/remove research areas as needed -->
+            <option value="machine-learning">Machine Learning</option>
+            <option value="molecular-dynamics">Molecular Dynamics</option>
+            <option value="protein-solvent">Protein–Solvent Interactions</option>
+            <option value="stat-mech">Statistical Mechanics</option>
+        </select>
+
+    </div>
+
+    <!-- Publications List -->
+    <div id="pubList">
+
+        <!-- Example Publication 1 -->
+        <div class="pub-card" data-year="2025" data-area="hydrophobicity">
+            <div class="pub-title">
+                Towards Stable Biologics: Understanding Co-Excipient Effects on Hydrophobic Interactions and Solvent Network Integrity
+            </div>
+            <div class="pub-meta">
+                <strong>Authors:</strong> J. W. P. Zajac, P. Muralikrishnan, C. L. Heldt, S. L. Perry, S. Sarupria  
+                <br>
+                <strong>Journal:</strong> Molecular Systems Design & Engineering, 2025 
+                <br>
+                <strong>Area:</strong> Hydrophobicity
+            </div>
+            <a href="https://doi.org/10.1039/D4ME00201F" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- Filtering Logic -->
+<script>
+    const yearFilter = document.getElementById("yearFilter");
+    const areaFilter = document.getElementById("areaFilter");
+    const pubList = document.getElementById("pubList").children;
+
+    function applyFilters() {
+        const year = yearFilter.value;
+        const area = areaFilter.value;
+
+        for (let pub of pubList) {
+            const matchesYear = (year === "all" || pub.dataset.year === year);
+            const matchesArea = (area === "all" || pub.dataset.area === area);
+
+            if (matchesYear && matchesArea) {
+                pub.style.display = "block";
+            } else {
+                pub.style.display = "none";
+            }
+        }
+    }
+
+    yearFilter.addEventListener("change", applyFilters);
+    areaFilter.addEventListener("change", applyFilters);
+</script>
+
+</body>
+</html>
