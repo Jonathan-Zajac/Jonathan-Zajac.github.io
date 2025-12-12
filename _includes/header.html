@@ -1,89 +1,67 @@
 <style>
-/* Full viewport header with background image */
-header {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* full viewport height */
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
+    /* Background stretch and overlay setup */
+    header {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+    }
 
-/* Background image behind content */
-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('img/header.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: -1; /* behind content */
-}
+    header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* fills the header's height */
+        background-image: url('img/header.jpg');
+        background-size: cover;
+        background-position: center;
+        z-index: -1; /* behind all content */
+    }
 
-/* Centered content */
-.header-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* vertical centering */
-    align-items: center;
-    padding: 20px;
-}
+    .header-content {
+        position: relative;
+        width: 100%;
+        min-height: calc(100px + /* overlay-box height */ 1px); /* optional if you want to ensure it fills */
+    }
 
-/* Overlay box styling */
-.overlay-box {
-    background: rgba(0, 0, 0, 0.55);
-    padding: 20px;
-    border-radius: 9px;
-    max-width: 900px;
-    width: 100%;
-}
+    .overlay-box {
+        background: rgba(0, 0, 0, 0.55); /* semi-transparent black */
+        padding: 20px;
+        border-radius: 9px;
+    }
 
-.overlay-box h1,
-.overlay-box p,
-.overlay-box a {
-    color: white !important;
-}
+    .overlay-box p,
+    .overlay-box h1,
+    .overlay-box a {
+        color: white !important;
+    }
 
-/* Button style */
-.overlay-box .btn-primary {
-    background-color: #641d1d;
-    border-color: #331414;
-}
+    .overlay-box .btn-primary {
+        background-color: #641d1d;
+        border-color: #331414;
+    }
 
-/* Flex layout for portrait + text */
-.intro-flex .row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-}
-
-.intro-flex .col-sm-3 img {
-    width: 100%;
-    height: auto;
-    border-radius: 100%;
-}
-
-.intro-flex .col-sm-9 p {
-    margin-bottom: 15px;
-}
-
-/* Optional: responsive adjustments for smaller screens */
-@media (max-width: 767px) {
+    /* Flex layout for portrait and text */
     .intro-flex .row {
-        flex-direction: column;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap; /* keeps responsive on small screens */
     }
-    .intro-flex .col-sm-3,
-    .intro-flex .col-sm-9 {
-        max-width: 100%;
+
+    .intro-flex .col-sm-3 img {
+        width: 100%;
+        height: auto;
+        border-radius: 100%;
     }
-}
+
+    /* Optional: responsive text */
+    .intro-flex .col-sm-9 p {
+        margin-bottom: 20px;
+    }
+
 </style>
 
 <header>
@@ -91,18 +69,24 @@ header::before {
         <div class="header-content-inner intro-flex">
             <h1>Computational Biophysics & Molecular Design</h1>
             <hr>
+
             <div class="overlay-box">
                 <div class="row">
                     <div class="col-sm-3">
                         <img src="img/portrait.jpg" alt="Jonathan Zajac portrait">
                     </div>
+
                     <div class="col-sm-9">
                         <p>Hi there! I'm Jonathan. I am a computational molecular scientist interested in the structure, function, 
-                            and dynamics of biomolecular systems. I develop and leverage methods combining statistical mechanics, 
-                            thermodynamics, machine learning, and enhanced sampling to investigate complex systems.
+                            and dynamics of biomolecular systems. I'm an enthusiast of observing proteins wiggle and jiggle, using 
+                            molecular simulations to understand the physical principles underlying biological systems. I develop and 
+                            leverage methods combining statistical mechanics, thermodynamics, machine learning, and enhanced sampling
+                            to investigate complex systems.
                         </p>
+
                         <p>Currently, I am a 5th year Ph.D. candidate in the Department of Chemistry at the University of Minnesota,
-                            advised by Professor Sapna Sarupria. My research focuses on studying protein-solvent interactions to design stable biological formulations.
+                            advised by Professor Sapna Sarupria. My research focuses on developing and applying computational methods
+                            to study protein-solvent interactions towards the design of stable biological formulations.
                         </p>
                     </div>
                 </div>
