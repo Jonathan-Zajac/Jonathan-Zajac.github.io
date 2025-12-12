@@ -1,3 +1,68 @@
+<style>
+    /* Background stretch and overlay setup */
+    header {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+    }
+
+    header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* fills the header's height */
+        background-image: url('img/header.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .header-content {
+        position: relative;
+        width: 100%;
+        min-height: calc(100px + /* overlay-box height */ 1px); /* optional if you want to ensure it fills */
+    }
+
+    .overlay-box {
+        background: rgba(0, 0, 0, 0.55); /* semi-transparent black */
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .overlay-box p,
+    .overlay-box h1,
+    .overlay-box a {
+        color: white !important;
+    }
+
+    .overlay-box .btn-primary {
+        background-color: #641d1d;
+        border-color: #331414;
+    }
+
+    /* Flex layout for portrait and text */
+    .intro-flex .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap; /* keeps responsive on small screens */
+    }
+
+    .intro-flex .col-sm-3 img {
+        width: 100%;
+        height: auto;
+        border-radius: 100%;
+    }
+
+    /* Optional: responsive text */
+    .intro-flex .col-sm-9 p {
+        margin-bottom: 20px;
+    }
+
+</style>
+
 <header>
     <div class="header-content">
         <div class="header-content-inner intro-flex">
