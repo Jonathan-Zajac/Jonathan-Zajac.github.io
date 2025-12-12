@@ -1,21 +1,68 @@
 <style>
+    /* Background stretch and overlay setup */
+    header {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+    }
+
+    header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* fills the header's height */
+        background-image: url('img/header.jpg');
+        background-size: cover;
+        background-position: center;
+        z-index: -1; /* behind all content */
+    }
+
+    .header-content {
+        position: relative; /* ensures content stays above background */
+        padding: 100px 15px 100px; /* keeps your original spacing */
+        width: 100%;
+    }
+
     .overlay-box {
         background: rgba(0, 0, 0, 0.55); /* semi-transparent black */
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 9px;
     }
 
     .overlay-box p,
     .overlay-box h1,
     .overlay-box a {
-        color: white !important; /* readable text */
+        color: white !important;
     }
 
-    /* Optional: make the button stand out */
     .overlay-box .btn-primary {
-        background-color: #370707;
-        border-color: #000000;
+        background-color: #641d1d;
+        border-color: #331414;
     }
+
+    /* Flex layout for portrait and text */
+    .intro-flex .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap; /* keeps responsive on small screens */
+    }
+
+    .intro-flex .col-sm-3 img {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    /* Optional: responsive text */
+    .intro-flex .col-sm-9 p {
+        margin-bottom: 20px;
+    }
+
 </style>
 
 <header>
@@ -25,10 +72,9 @@
             <hr>
 
             <div class="overlay-box">
-                <div class="row" style="display:flex; align-items:center;">
+                <div class="row">
                     <div class="col-sm-3">
-                        <img src="img/portrait.jpg" alt="Jonathan Zajac portrait"
-                            style="width:100%; max-width:150px; height:auto; border-radius:50%;">
+                        <img src="img/portrait.jpg" alt="Jonathan Zajac portrait">
                     </div>
 
                     <div class="col-sm-9">
