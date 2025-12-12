@@ -6563,37 +6563,5 @@ button.close {
     display: none !important;
   }
 }
-.header-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    text-align: center;
-}
-.header-inner {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 30px;         /* spacing between image and text */
-    flex-wrap: wrap;    /* allows text to stack below on small screens */
-    max-width: 1200px;  /* keeps header from getting too wide */
-    margin: 0 auto;
-}
-.intro-portrait {
-    width: clamp(80px, 12vw, 150px); /* scales with viewport but stays reasonable */
-    height: auto;
-    border-radius: 50%;  /* circular portrait */
-    flex-shrink: 0;       /* prevents weird flex stretching */
-}
-.intro-text {
-    flex: 1;               /* lets text take remaining space */
-    min-width: 250px;      /* ensures readability on very small screens */
-}
-h1 {
-    font-size: clamp(1.5rem, 2.5vw, 3rem); /* scales with screen */
-}
-p {
-    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-    line-height: 1.6;
-}
+
 /*# sourceMappingURL=bootstrap.css.map */
