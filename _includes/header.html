@@ -22,9 +22,9 @@
     }
 
     .header-content {
-        position: relative; /* ensures content stays above background */
-        padding: 100px 15px 100px; /* keeps your original spacing */
+        position: relative;
         width: 100%;
+        min-height: calc(100px + /* overlay-box height */ 1px); /* optional if you want to ensure it fills */
     }
 
     .overlay-box {
@@ -55,7 +55,7 @@
         width: 100%;
         max-width: 150px;
         height: auto;
-        border-radius: 50%;
+        border-radius: 100%;
     }
 
     /* Optional: responsive text */
