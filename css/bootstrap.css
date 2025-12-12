@@ -6563,13 +6563,4 @@ button.close {
     display: none !important;
   }
 }
-.header-content {
-    display: flex;
-    justify-content: center;      /* horizontal centering */
-    align-items: center;          /* vertical centering */
-    min-height: 100vh;            /* header takes full viewport height */
-    padding: 20px;
-    text-align: center;
-    box-sizing: border-box;
-}
 /*# sourceMappingURL=bootstrap.css.map */
