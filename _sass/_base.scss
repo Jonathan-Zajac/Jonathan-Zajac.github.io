@@ -152,30 +152,20 @@ aside {
 header {
     position: relative;
     width: 100%;
-    min-height: 100vh; // full viewport
-    @include background-cover;
-    background-position: center;
+    height: 100vh;  /* full viewport height */
     background-image: url('../img/header.jpg');
-    text-align: center;
-    color: white;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* prevent accidental scrollbars */
+}
 
-    .header-content {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        transform: translateY(-50%);
-        padding: 0 50px;
-
-        .header-content-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-
-            h1 { font-weight: 700; text-transform: uppercase; }
-            hr { margin: 30px auto; }
-            p { font-weight: 300; color: rgba(white, .7); font-size: 16px; margin-bottom: 50px; }
-        }
-    }
+.header-content {
+    padding: 0 50px; /* horizontal only, no top/bottom padding */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
 }
 
 // Sections
