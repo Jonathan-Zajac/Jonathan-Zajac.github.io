@@ -79,6 +79,7 @@
                 <option value="gpcr-pharmacology">GPCR Pharmacology</option>
                 <option value="hydrophobicity">Hydrophobicity</option>
                 <option value="molecular-dynamics">Molecular Dynamics</option>
+                <option value="network-theory">Network Theory</option>
                 <option value="protein-engineering">Protein Engineering</option>
                 <option value="protein-solvent">Protein–Solvent Interactions</option>
                 <option value="virology">Virology</option>
@@ -88,7 +89,21 @@
 
         <!-- Publications List -->
         <div id="pubList">
-            <div class="pub-card" data-year="2025" data-area="hydrophobicity,molecular-dynamics,protein-solvent,enhanced-sampling">
+            <div class="pub-card" data-year="2025" data-area="virology,molecular-dynamics,protein-solvent">
+                <div class="pub-title">
+                    Cracking the Capsid Code: A Computationally-Feasible Approach for Investigating Virus-Excipient Interactions in Biologics Design
+                </div>
+                <div class="pub-meta">
+                    <strong>Authors:</strong> J. W. P. Zajac, I. Tohidian, P. Muralikrishnan, S. L. Perry, C. L. Heldt, S. Sarupria
+                    <br>
+                    <strong>Journal:</strong> bioRxiv, 2025 [Manuscript in revision, submitted to JCTC]
+                    <br>
+                    <strong>Area:</strong> Virology, Molecular Dynamics, Protein-Solvent Interactions
+                </div>
+                <a href="https://doi.org/10.1101/2025.09.04.674344" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
+            </div>
+
+            <div class="pub-card" data-year="2025" data-area="hydrophobicity,molecular-dynamics,protein-solvent,enhanced-sampling,network-theory">
                 <div class="pub-title">
                     Towards Stable Biologics: Understanding Co-Excipient Effects on Hydrophobic Interactions and Solvent Network Integrity
                 </div>
@@ -97,7 +112,7 @@
                     <br>
                     <strong>Journal:</strong> Molecular Systems Design & Engineering, 2025 
                     <br>
-                    <strong>Area:</strong> Hydrophobicity, Molecular Dynamics, Protein-Solvent Interactions, Enhanced Sampling
+                    <strong>Area:</strong> Hydrophobicity, Molecular Dynamics, Protein-Solvent Interactions, Enhanced Sampling, Network Theory
                 </div>
                 <a href="https://doi.org/10.1039/D4ME00201F" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
@@ -144,7 +159,7 @@
                 <a href="https://doi.org/10.1021/acs.jmedchem.4c01556" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
 
-            <div class="pub-card" data-year="2023" data-area="molecular-dynamics,protein-engineering">
+            <div class="pub-card" data-year="2023" data-area="molecular-dynamics,protein-engineering,network-theory">
                 <div class="pub-title">
                     Exploitation of Active Site Flexibility-Low Temperature Activity Relation for Engineering Broad Range Temperature Active Enzymes
                 </div>
@@ -153,7 +168,7 @@
                     <br>
                     <strong>Journal:</strong> Molecular Systems Design and Engineering , 2023
                     <br>
-                    <strong>Area:</strong> Molecular Dynamics, Protein Engineering
+                    <strong>Area:</strong> Molecular Dynamics, Protein Engineering, Network Theory
                 </div>
                 <a href="https://doi.org/10.1039/D3ME00013C" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
@@ -217,6 +232,20 @@
 
     yearFilter.addEventListener("change", applyFilters);
     areaFilter.addEventListener("change", applyFilters);
+</script>
+
+<script>
+    function getQueryParam(param) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(param);
+    }
+
+    // Auto-apply filter from research page
+    const areaFromURL = getQueryParam("area");
+    if (areaFromURL) {
+        areaFilter.value = areaFromURL;
+        applyFilters();
+    }
 </script>
 
 </body>
