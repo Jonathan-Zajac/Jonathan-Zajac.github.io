@@ -66,6 +66,83 @@
         margin-bottom: 20px;
     }
 
+    /* CV Overlay background */
+    #cvOverlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+    }
+
+    /* Active state */
+    #cvOverlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* CV panel */
+    .cv-panel {
+        background: #fff;
+        width: min(900px, 92vw);
+        height: min(85vh, 900px);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+
+        transform: translateY(40px) scale(0.97);
+        transition: transform 0.35s ease;
+    }
+
+    #cvOverlay.active .cv-panel {
+        transform: translateY(0) scale(1);
+    }
+
+    /* Header */
+    .cv-header {
+        padding: 12px 16px;
+        background: #641d1d;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+    }
+
+    .cv-header button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 28px;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    /* Body */
+    .cv-body {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .cv-body iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Footer */
+    .cv-footer {
+        padding: 10px 16px;
+        text-align: right;
+        border-top: 1px solid #ddd;
+    }
+
 </style>
 
 <header>
@@ -77,7 +154,7 @@
             <div class="overlay-box">
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="img/portrait2.jpg" alt="Jonathan Zajac portrait">
+                        <img src="img/portrait3.jpg" alt="Jonathan Zajac portrait">
                     </div>
 
                     <div class="col-sm-9">
@@ -96,10 +173,67 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <a href="#education" class="btn btn-primary btn-xl page-scroll">Learn More!</a>
+                        <button id="cvBtn" class="btn btn-primary btn-xl">
+                            View CV
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
+<!-- CV Overlay -->
+<div id="cvOverlay">
+    <div class="cv-panel">
+        <div class="cv-header">
+            <span>Curriculum Vitae</span>
+            <button id="closeCv">&times;</button>
+        </div>
+
+        <div class="cv-body">
+            <iframe
+                src="files/Jonathan_Zajac_CV.pdf"
+                title="Jonathan Zajac CV">
+            </iframe>
+        </div>
+
+        <div class="cv-footer">
+            <a href="files/Jonathan_Zajac_CV.pdf" download class="btn btn-primary">
+                Download CV
+            </a>
+            <button id="closeCvBottom" class="btn btn-default">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const cvOverlay = document.getElementById("cvOverlay");
+    const cvBtn = document.getElementById("cvBtn");
+    const closeBtns = [
+        document.getElementById("closeCv"),
+        document.getElementById("closeCvBottom")
+    ];
+
+    cvBtn.addEventListener("click", () => {
+        cvOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+    });
+
+    closeBtns.forEach(btn =>
+        btn.addEventListener("click", () => {
+            cvOverlay.classList.remove("active");
+            document.body.style.overflow = "";
+        })
+    );
+
+    // Close when clicking outside panel
+    cvOverlay.addEventListener("click", e => {
+        if (e.target === cvOverlay) {
+            cvOverlay.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+    });
+</script>
