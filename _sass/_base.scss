@@ -52,7 +52,7 @@ p {
 }
 
 .text-faded {
-    color: rgba(white, .7);
+    color: rgba(rgb(33, 32, 32), .7);
 }
 
 section {
@@ -70,7 +70,7 @@ aside {
 // Navigation
 
 .navbar-default {
-    background-color: rgba(255, 255, 255, 0.493);
+    background-color: rgba(188, 56, 56, 0.493);
     border-color: rgba($theme-dark, .5);
     @include sans-serif-font;
     @include transition-all;
