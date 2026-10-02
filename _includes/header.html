@@ -15,7 +15,7 @@
         left: 0;
         width: 100%;
         height: 100%; /* fills the header's height */
-        background-image: url('img/header.jpg');
+        background-image: linear-gradient(rgba(15, 18, 22, 0.45), rgba(15, 18, 22, 0.85)), url('img/header.jpg');
         background-size: cover;
         background-position: center;
         z-index: -1;
@@ -32,7 +32,10 @@
     }   
 
     .overlay-box {
-        background: rgba(0, 0, 0, 0.55); /* semi-transparent black */
+        background: rgba(15, 18, 22, 0.72); /* semi-transparent dark */
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
         padding: 20px;
         border-radius: 9px;
     }
@@ -41,11 +44,6 @@
     .overlay-box h1,
     .overlay-box a {
         color: white !important;
-    }
-
-    .overlay-box .btn-primary {
-        background-color: #641d1d;
-        border-color: #331414;
     }
 
     /* Flex layout for portrait and text */
@@ -89,7 +87,8 @@
 
     /* CV panel */
     .cv-panel {
-        background: #fff;
+        background: #171b21;
+        overflow: hidden;
         width: min(900px, 92vw);
         height: min(85vh, 900px);
         border-radius: 12px;
@@ -107,7 +106,7 @@
     /* Header */
     .cv-header {
         padding: 12px 16px;
-        background: #641d1d;
+        background: #1f242c;
         color: white;
         display: flex;
         justify-content: space-between;
@@ -140,7 +139,7 @@
     .cv-footer {
         padding: 10px 16px;
         text-align: right;
-        border-top: 1px solid #ddd;
+        border-top: 1px solid #2b313b;
     }
 
 </style>
@@ -148,7 +147,7 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner intro-flex">
-            <h1"></h1>
+            <h1></h1>
             <hr>
 
             <div class="overlay-box">
@@ -198,7 +197,7 @@
         </div>
 
         <div class="cv-footer">
-            <a href="files/Jonathan_Zajac_CV.pdf" download class="btn btn-primary">
+            <a href="files/ZajacJWP-CV.pdf" download class="btn btn-primary">
                 Download CV
             </a>
             <button id="closeCvBottom" class="btn btn-default">

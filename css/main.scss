@@ -3,39 +3,15 @@
 
 @charset "utf-8";
 
-// Example Defaults
-// $base-font-family: Helvetica, Arial, sans-serif;
-// $base-font-size:   16px;
-// $small-font-size:  $base-font-size * 0.875;
-// $base-line-height: 1.5;
-
-// $spacing-unit:     30px;
-
-// $text-color:       #111;
-// $background-color: #fdfdfd;
-// $brand-color:      #2a7ae2;
-
-// $grey-color:       #828282;
-// $grey-color-light: lighten($grey-color, 40%);
-// $grey-color-dark:  darken($grey-color, 25%);
-
-// // Width of the content area
-// $content-width:    800px;
-
-// $on-palm:          600px;
-// $on-laptop:        800px;
-
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-
-// variables.less
-$theme-primary: #db2929;
-$theme-dark: #0e0d0d;
+// Dark theme palette
+$theme-bg: #0f1216;          // page background
+$theme-surface: #171b21;     // cards, alternating sections
+$theme-surface-2: #1f242c;   // raised elements, inputs
+$theme-border: #2b313b;
+$theme-text: #e6e8eb;
+$theme-muted: #9aa3ae;
+$theme-primary: #e5534b;     // accent (warm red)
+$theme-dark: #0a0c0f;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import

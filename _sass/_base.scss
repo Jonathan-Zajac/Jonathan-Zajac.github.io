@@ -4,8 +4,14 @@ body {
     width: 100%;
 }
 
+html {
+    scroll-padding-top: 70px;
+}
+
 body {
     @include serif-font;
+    background-color: $theme-bg;
+    color: $theme-text;
 }
 
 hr {
@@ -23,7 +29,7 @@ a {
     color: $theme-primary;
     &:hover,
     &:focus {
-        color: darken($theme-primary, 10%);
+        color: lighten($theme-primary, 10%);
     }
 }
 
@@ -34,6 +40,7 @@ h4,
 h5,
 h6 {
     @include sans-serif-font;
+    color: $theme-text;
 }
 
 p {
@@ -52,11 +59,21 @@ p {
 }
 
 .text-faded {
-    color: rgba(rgb(33, 32, 32), .7);
+    color: rgba(white, .75);
+}
+
+.text-muted {
+    color: $theme-muted;
 }
 
 section {
     padding: 100px 0;
+}
+
+// Alternate section backgrounds so the page has some rhythm
+#research,
+#contact {
+    background-color: $theme-surface;
 }
 
 aside {
@@ -68,21 +85,40 @@ aside {
 }
 
 // Navigation
+// Always sits on a dark, translucent bar so the brand and links stay legible
+// over the header photo and over page content.
 
 .navbar-default {
-    background-color: rgba(188, 56, 56, 0.493);
-    border-color: rgba($theme-dark, .5);
+    background-color: rgba($theme-bg, .85);
+    border-color: transparent;
+    border-bottom: 1px solid rgba(white, .06);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
-        color: $theme-primary;
+        color: white;
         @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
+        letter-spacing: .04em;
         &:hover,
         &:focus {
-            color: darken($theme-primary, 10%);
+            color: $theme-primary;
         }
+    }
+    .navbar-toggle {
+        border-color: $theme-border;
+        &:hover,
+        &:focus {
+            background-color: $theme-surface-2;
+        }
+        .icon-bar {
+            background-color: $theme-text;
+        }
+    }
+    .navbar-collapse {
+        border-color: $theme-border;
     }
     .nav {
         > li {
@@ -91,9 +127,9 @@ aside {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: $theme-dark;
+                color: rgba(white, .75);
                 &:hover {
-                    color: $theme-primary;
+                    color: white;
                 }
             }
             &.active {
@@ -109,39 +145,12 @@ aside {
         }
     }
     @media (min-width: 768px) {
-        background-color: transparent;
-        border-color: rgba(white, .3);
-        .navbar-header .navbar-brand {
-            color: rgba(white, .7);
-            &:hover,
-            &:focus {
-                color: white;
-            }
-        }
-        .nav > li > a,
-        .nav > li > a:focus {
-            color: rgba(white, .7);
-            &:hover {
-                color: white;
-            }
-        }
+        background-color: rgba($theme-bg, .35);
         &.affix {
-            background-color: white;
-            border-color: rgba($theme-dark, .5);
+            background-color: rgba($theme-bg, .92);
+            border-bottom-color: $theme-border;
             .navbar-header .navbar-brand {
-                color: $theme-primary;
                 font-size: 14px;
-                &:hover,
-                &:focus {
-                    color: darken($theme-primary, 10%);
-                }
-            }
-            .nav > li > a,
-            .nav > li > a:focus {
-                color: $theme-dark;
-                &:hover {
-                    color: $theme-primary;
-                }
             }
         }
     }
@@ -176,7 +185,7 @@ header {
             }
             p {
                 font-weight: 300;
-                color: rgba(white, .7);
+                color: rgba(white, .85);
                 font-size: 16px;
                 margin-bottom: 50px;
             }
@@ -229,11 +238,15 @@ header {
     display: block;
     max-width: 650px;
     margin: 0 auto;
+    overflow: hidden;
+    img {
+        @include transition-all;
+    }
     .portfolio-box-caption {
         color: white;
         opacity: 0;
         display: block;
-        background: rgba( $theme-primary, .9 );
+        background: rgba( $theme-primary, .85 );
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -246,33 +259,43 @@ header {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            .project-category,
-            .project-name {
+            .research-category,
+            .research-name {
                 @include sans-serif-font;
                 padding: 0 15px;
             }
-            .project-category {
+            .research-category {
                 text-transform: uppercase;
                 font-weight: 600;
                 font-size: 14px;
             }
-            .project-name {
+            .research-name {
                 font-size: 18px;
+                font-weight: 600;
             }
         }
     }
-    &:hover {
+    &:hover,
+    &:focus,
+    &.active {
         .portfolio-box-caption {
             opacity: 1;
+        }
+    }
+    // Selected research area: keep the caption up and outline the tile
+    &.active {
+        box-shadow: inset 0 0 0 4px white;
+        .portfolio-box-caption {
+            box-shadow: inset 0 0 0 4px white;
         }
     }
     @media (min-width: 768px) {
         .portfolio-box-caption {
             .portfolio-box-caption-content {
-                .project-category {
+                .research-category {
                     font-size: 16px;
                 }
-                .project-name {
+                .research-name {
                     font-size: 22px;
                 }
             }
@@ -280,10 +303,159 @@ header {
     }
 }
 
+.research-hint {
+    @include sans-serif-font;
+    color: $theme-muted;
+    font-size: 14px;
+    margin: -10px 0 30px;
+}
+
 .call-to-action {
     h2 {
         margin: 0 auto 20px;
     }
+}
+
+// Publications
+
+.pub-filters {
+    @include sans-serif-font;
+    margin-bottom: 15px;
+    .filter-group {
+        margin-bottom: 12px;
+    }
+    .filter-label {
+        display: inline-block;
+        color: $theme-muted;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        margin-right: 8px;
+    }
+}
+
+.chip {
+    display: inline-block;
+    margin: 3px 2px;
+    padding: 5px 14px;
+    border: 1px solid $theme-border;
+    border-radius: 300px;
+    background: $theme-surface-2;
+    color: $theme-text;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    @include transition-all;
+    &:hover,
+    &:focus {
+        border-color: $theme-primary;
+        outline: none;
+    }
+    &.active {
+        background: $theme-primary;
+        border-color: $theme-primary;
+        color: white;
+    }
+}
+
+.pub-status {
+    @include sans-serif-font;
+    min-height: 24px;
+    margin-bottom: 20px;
+    color: $theme-muted;
+    font-size: 14px;
+    text-align: center;
+    strong {
+        color: $theme-text;
+    }
+    .pub-clear {
+        margin-left: 8px;
+        background: none;
+        border: none;
+        padding: 0;
+        color: $theme-primary;
+        font-weight: 600;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.pub-card {
+    position: relative;
+    background: $theme-surface;
+    border: 1px solid $theme-border;
+    border-left: 4px solid $theme-border;
+    padding: 20px 22px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    transition: opacity .35s ease, filter .35s ease, border-color .35s ease, box-shadow .35s ease;
+    &:hover {
+        box-shadow: 0 6px 20px rgba(black, .45);
+    }
+    &.is-match {
+        border-left-color: $theme-primary;
+        box-shadow: 0 0 0 1px rgba($theme-primary, .35), 0 6px 20px rgba(black, .35);
+    }
+    &.is-dimmed {
+        opacity: .5;
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
+
+.pub-title {
+    @include sans-serif-font;
+    color: $theme-text;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 8px;
+}
+
+.pub-meta {
+    color: $theme-muted;
+    font-size: 14px;
+    line-height: 1.6;
+    .me {
+        color: $theme-text;
+        font-weight: 700;
+    }
+    em {
+        color: $theme-text;
+    }
+}
+
+.pub-tags {
+    margin-top: 10px;
+}
+
+.pub-tag {
+    display: inline-block;
+    margin: 3px 4px 0 0;
+    padding: 2px 10px;
+    border-radius: 300px;
+    background: $theme-surface-2;
+    border: 1px solid $theme-border;
+    color: $theme-muted;
+    @include sans-serif-font;
+    font-size: 12px;
+    font-weight: 600;
+    @include transition-all;
+    &.is-match {
+        background: rgba($theme-primary, .15);
+        border-color: $theme-primary;
+        color: lighten($theme-primary, 15%);
+    }
+}
+
+.pub-card .btn {
+    margin-top: 14px;
 }
 
 // Bootstrap Overrides
@@ -298,7 +470,7 @@ header {
 
 // Button Styles
 .btn-default {
-    @include button-variant($theme-dark, white, white);
+    @include button-variant($theme-text, $theme-surface-2, $theme-border);
 }
 
 .btn-primary {
@@ -318,9 +490,19 @@ header {
 }
 
 // Contact
-#contact .fa {
-    color: $theme-dark;
-    font-size: 4em;
+#contact {
+    a {
+        color: $theme-text;
+        &:hover,
+        &:focus {
+            color: $theme-primary;
+            text-decoration: none;
+        }
+    }
+    .fa {
+        color: inherit;
+        font-size: 4em;
+    }
 }
 
 // Extras
@@ -328,13 +510,13 @@ header {
 ::-moz-selection {
     color: white;
     text-shadow: none;
-    background: $theme-dark;
+    background: $theme-primary;
 }
 
 ::selection {
     color: white;
     text-shadow: none;
-    background: $theme-dark;
+    background: $theme-primary;
 }
 
 img::selection {
@@ -351,3 +533,8 @@ body {
     -webkit-tap-highlight-color: $theme-dark;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .pub-card {
+        transition: none;
+    }
+}
