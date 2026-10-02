@@ -318,144 +318,57 @@ header {
 
 // Publications
 
-.pub-filters {
-    @include sans-serif-font;
-    margin-bottom: 15px;
-    .filter-group {
-        margin-bottom: 12px;
-    }
-    .filter-label {
-        display: inline-block;
-        color: $theme-muted;
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: .08em;
-        margin-right: 8px;
-    }
-}
-
-.chip {
-    display: inline-block;
-    margin: 3px 2px;
-    padding: 5px 14px;
-    border: 1px solid $theme-border;
-    border-radius: 300px;
-    background: $theme-surface-2;
-    color: $theme-text;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    @include transition-all;
-    &:hover,
-    &:focus {
-        border-color: $theme-primary;
-        outline: none;
-    }
-    &.active {
-        background: $theme-primary;
-        border-color: $theme-primary;
-        color: white;
-    }
-}
-
-.pub-status {
-    @include sans-serif-font;
-    min-height: 24px;
-    margin-bottom: 20px;
-    color: $theme-muted;
-    font-size: 14px;
-    text-align: center;
-    strong {
+.filters {
+    margin-bottom: 25px;
+    select {
+        background: $theme-surface-2;
         color: $theme-text;
+        border: 1px solid $theme-border;
+        border-radius: 4px;
+        padding: 3px 6px;
     }
-    .pub-clear {
-        margin-left: 8px;
-        background: none;
-        border: none;
-        padding: 0;
-        color: $theme-primary;
-        font-weight: 600;
-        cursor: pointer;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
+}
+
+.filter-label {
+    font-weight: bold;
+    margin-right: 10px;
 }
 
 .pub-card {
-    position: relative;
     background: $theme-surface;
     border: 1px solid $theme-border;
-    border-left: 4px solid $theme-border;
-    padding: 20px 22px;
+    padding: 20px;
     border-radius: 8px;
-    margin-bottom: 18px;
-    transition: opacity .35s ease, filter .35s ease, border-color .35s ease, box-shadow .35s ease;
+    margin-bottom: 20px;
+    transition: box-shadow .25s ease, opacity .35s ease, filter .35s ease, border-color .35s ease;
     &:hover {
-        box-shadow: 0 6px 20px rgba(black, .45);
+        box-shadow: 0 4px 15px rgba(black, .5);
     }
+    // Matches the selected filter / research area
     &.is-match {
-        border-left-color: $theme-primary;
-        box-shadow: 0 0 0 1px rgba($theme-primary, .35), 0 6px 20px rgba(black, .35);
+        border-color: $theme-primary;
+        box-shadow: 0 0 0 1px $theme-primary;
     }
+    // Doesn't match: still listed, just grayed out
     &.is-dimmed {
         opacity: .5;
         -webkit-filter: grayscale(1);
         filter: grayscale(1);
         &:hover {
-            opacity: .8;
+            opacity: .85;
         }
     }
 }
 
 .pub-title {
-    @include sans-serif-font;
     color: $theme-text;
     font-size: 18px;
     font-weight: 600;
-    line-height: 1.35;
-    margin-bottom: 8px;
 }
 
 .pub-meta {
     color: $theme-muted;
     font-size: 14px;
-    line-height: 1.6;
-    .me {
-        color: $theme-text;
-        font-weight: 700;
-    }
-    em {
-        color: $theme-text;
-    }
-}
-
-.pub-tags {
-    margin-top: 10px;
-}
-
-.pub-tag {
-    display: inline-block;
-    margin: 3px 4px 0 0;
-    padding: 2px 10px;
-    border-radius: 300px;
-    background: $theme-surface-2;
-    border: 1px solid $theme-border;
-    color: $theme-muted;
-    @include sans-serif-font;
-    font-size: 12px;
-    font-weight: 600;
-    @include transition-all;
-    &.is-match {
-        background: rgba($theme-primary, .15);
-        border-color: $theme-primary;
-        color: lighten($theme-primary, 15%);
-    }
-}
-
-.pub-card .btn {
-    margin-top: 14px;
 }
 
 // Bootstrap Overrides

@@ -1,38 +1,59 @@
 <section id="publications">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Publications</h2>
-                <hr class="primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Publications</h2>
+                    <hr class="primary">
+                </div>
             </div>
         </div>
 
-        <!-- Filters: chips are built from the lists below -->
-        <div class="pub-filters text-center">
-            <div class="filter-group" id="areaFilter">
-                <span class="filter-label">Area</span>
-            </div>
-            <div class="filter-group" id="yearFilter">
-                <span class="filter-label">Year</span>
-            </div>
+        <!-- Filters -->
+        <div class="row filters text-center">
+
+            <span class="filter-label">Filter by Year:</span>
+            <select id="yearFilter">
+                <option value="all">All</option>
+                <!-- Add more years as needed -->
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+                <option value="2023">2023</option>
+                <option value="2020">2020</option>
+            </select>
+
+            &nbsp;&nbsp;&nbsp;
+
+            <span class="filter-label">Filter by Area:</span>
+            <select id="areaFilter">
+                <option value="all">All</option>
+                <!-- Add/remove research areas as needed -->
+                <option value="enhanced-sampling">Enhanced Sampling</option>
+                <option value="gpcr-pharmacology">GPCR Pharmacology</option>
+                <option value="hydrophobicity">Hydrophobicity</option>
+                <option value="molecular-dynamics">Molecular Dynamics</option>
+                <option value="network-theory">Network Theory</option>
+                <option value="protein-engineering">Protein Engineering</option>
+                <option value="protein-solvent">Protein–Solvent Interactions</option>
+                <option value="virology">Virology</option>
+            </select>
+
         </div>
 
-        <div class="pub-status" id="pubStatus" aria-live="polite"></div>
-
-        <!-- Publications List
-             data-area values must match keys in PUB_AREAS below. -->
-        <div class="row">
-        <div class="col-lg-10 col-lg-offset-1" id="pubList">
+        <!-- Publications List -->
+        <div id="pubList">
             <div class="pub-card" data-year="2026" data-area="molecular-dynamics,protein-solvent">
                 <div class="pub-title">
                     Exploring the Mutual Effects of Excipients and Proteins in Complex Coacervation
                 </div>
                 <div class="pub-meta">
-                    X. Zeng, A. Sathyavageeswaran, <span class="me">J. W. P. Zajac</span>, C. L. Heldt, S. Sarupria, S. L. Perry
+                    <strong>Authors:</strong> X. Zeng, A. Sathyavageeswaran, J. W. P. Zajac, C. L. Heldt, S. Sarupria, S. L. Perry
                     <br>
-                    <em>Biomacromolecules</em>, 2026
+                    <strong>Journal:</strong> Biomacromolecules, 2026
+                    <br>
+                    <strong>Area:</strong> Molecular Dynamics, Protein-Solvent Interactions
                 </div>
-                <a href="https://doi.org/10.1021/acs.biomac.6c01389" target="_blank" class="btn btn-primary btn-sm">View Paper</a>
+                <a href="https://doi.org/10.1021/acs.biomac.6c01389" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
 
             <div class="pub-card" data-year="2026" data-area="virology,molecular-dynamics,protein-solvent">
@@ -40,11 +61,13 @@
                     Cracking the Capsid Code: A Computationally-Feasible Approach for Investigating Virus-Excipient Interactions in Biologics Design
                 </div>
                 <div class="pub-meta">
-                    <span class="me">J. W. P. Zajac</span>, I. Tohidian, P. Muralikrishnan, S. L. Perry, C. L. Heldt, S. Sarupria
+                    <strong>Authors:</strong> J. W. P. Zajac, I. Tohidian, P. Muralikrishnan, S. L. Perry, C. L. Heldt, S. Sarupria
                     <br>
-                    <em>Journal of Chemical Theory and Computation</em>, 2026
+                    <strong>Journal:</strong> Journal of Chemical Theory and Computation, 2026
+                    <br>
+                    <strong>Area:</strong> Virology, Molecular Dynamics, Protein-Solvent Interactions
                 </div>
-                <a href="https://doi.org/10.1021/acs.jctc.5c01810" target="_blank" class="btn btn-primary btn-sm">View Paper</a>
+                <a href="https://doi.org/10.1021/acs.jctc.5c01810" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
 
             <div class="pub-card" data-year="2025" data-area="hydrophobicity,molecular-dynamics,protein-solvent,enhanced-sampling,network-theory">
@@ -52,11 +75,13 @@
                     Towards Stable Biologics: Understanding Co-Excipient Effects on Hydrophobic Interactions and Solvent Network Integrity
                 </div>
                 <div class="pub-meta">
-                    <span class="me">J. W. P. Zajac</span>, P. Muralikrishnan, C. L. Heldt, S. L. Perry, S. Sarupria
+                    <strong>Authors:</strong> J. W. P. Zajac, P. Muralikrishnan, C. L. Heldt, S. L. Perry, S. Sarupria  
                     <br>
-                    <em>Molecular Systems Design &amp; Engineering</em>, 2025
+                    <strong>Journal:</strong> Molecular Systems Design & Engineering, 2025 
+                    <br>
+                    <strong>Area:</strong> Hydrophobicity, Molecular Dynamics, Protein-Solvent Interactions, Enhanced Sampling, Network Theory
                 </div>
-                <a href="https://doi.org/10.1039/D4ME00201F" target="_blank" class="btn btn-primary btn-sm">View Paper</a>
+                <a href="https://doi.org/10.1039/D4ME00201F" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
 
             <div class="pub-card" data-year="2025" data-area="hydrophobicity,molecular-dynamics,protein-solvent,enhanced-sampling">
@@ -64,11 +89,13 @@
                     Flipping Out: Role of Arginine in Hydrophobic Polymer Collapse
                 </div>
                 <div class="pub-meta">
-                    <span class="me">J. W. P. Zajac</span>, P. Muralikrishnan, I. Tohidian, X. Zeng, C. L. Heldt, S. L. Perry, S. Sarupria
+                    <strong>Authors:</strong> J. W. P. Zajac, P. Muralikrishnan, I. Tohidian, X. Zeng, C. L. Heldt, S. L. Perry, S. Sarupria  
                     <br>
-                    <em>Chemical Science</em>, 2025
+                    <strong>Journal:</strong> Chemical Science, 2025 
+                    <br>
+                    <strong>Area:</strong> Hydrophobicity, Molecular Dynamics, Protein-Solvent Interactions, Enhanced Sampling
                 </div>
-                <a href="https://doi.org/10.1039/d4sc08672d" target="_blank" class="btn btn-primary btn-sm">View Paper</a>
+                <a href="https://doi.org/10.1039/d4sc08672d" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
 
             <div class="pub-card" data-year="2025" data-area="hydrophobicity,molecular-dynamics,protein-solvent,enhanced-sampling">
@@ -76,11 +103,13 @@
                     Thermodynamic Basis of Sugar-Dependent Polymer Stabilization: Informing Biologic Formulation Design
                 </div>
                 <div class="pub-meta">
-                    P. Muralikrishnan, <span class="me">J. W. P. Zajac</span>, C. L. Heldt, S. L. Perry, S. Sarupria
+                    <strong>Authors:</strong> P. Muralikrishnan, J. W. P. Zajac, C. L. Heldt, S. L. Perry, S. Sarupria  
                     <br>
-                    <em>Journal of Physical Chemistry B</em>, 2025
+                    <strong>Journal:</strong> Journal of Physical Chemistry B, 2025 
+                    <br>
+                    <strong>Area:</strong> Hydrophobicity, Molecular Dynamics, Protein-Solvent Interactions, Enhanced Sampling
                 </div>
-                <a href="https://doi.org/10.1021/acs.jpcb.5c06203" target="_blank" class="btn btn-primary btn-sm">View Paper</a>
+                <a href="https://doi.org/10.1021/acs.jpcb.5c06203" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
 
             <div class="pub-card" data-year="2025" data-area="molecular-dynamics,gpcr-pharmacology">
@@ -88,11 +117,13 @@
                     N-branched Tri-Cyclic Guanidines as Novel Melanocortin-3 Receptor Agonists and Melanocortin-4 Receptor Antagonists
                 </div>
                 <div class="pub-meta">
-                    N. Weirath, <span class="me">J. W. P. Zajac</span>, H. Donow, T. Lavoi, C. Pinilla, R. Santos, R. Prajapati, R. Speth, M. Ericson, S. Sarupria, M. Giulanotti, C. Haskell-Luevano
+                    <strong>Authors:</strong> N. Weirath, J. W. P. Zajac, H. Donow, T. Lavoi, C. Pinilla, R. Santos, R. Prajapati, R. Speth, M. Ericson, S. Sarupria, M. Giulanotti, C. Haskell-Luevano  
                     <br>
-                    <em>Journal of Medicinal Chemistry</em>, 2025
+                    <strong>Journal:</strong> Journal of Medicinal Chemistry, 2025 
+                    <br>
+                    <strong>Area:</strong> Molecular Dynamics, GPCR Pharmacology
                 </div>
-                <a href="https://doi.org/10.1021/acs.jmedchem.4c01556" target="_blank" class="btn btn-primary btn-sm">View Paper</a>
+                <a href="https://doi.org/10.1021/acs.jmedchem.4c01556" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
 
             <div class="pub-card" data-year="2023" data-area="molecular-dynamics,protein-engineering,network-theory">
@@ -100,11 +131,13 @@
                     Exploitation of Active Site Flexibility-Low Temperature Activity Relation for Engineering Broad Range Temperature Active Enzymes
                 </div>
                 <div class="pub-meta">
-                    S. Dasetty, <span class="me">J. W. P. Zajac</span>, and S. Sarupria
+                    <strong>Authors:</strong> S. Dasetty, J. W. P. Zajac, and S. Sarupria
                     <br>
-                    <em>Molecular Systems Design &amp; Engineering</em>, 2023
+                    <strong>Journal:</strong> Molecular Systems Design and Engineering , 2023
+                    <br>
+                    <strong>Area:</strong> Molecular Dynamics, Protein Engineering, Network Theory
                 </div>
-                <a href="https://doi.org/10.1039/D3ME00013C" target="_blank" class="btn btn-primary btn-sm">View Paper</a>
+                <a href="https://doi.org/10.1039/D3ME00013C" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
 
             <div class="pub-card" data-year="2020" data-area="virology">
@@ -112,11 +145,13 @@
                     Role of Oxidative Stress on SARS-CoV (SARS) and SARS-CoV-2 (COVID-19) Infection: A Review
                 </div>
                 <div class="pub-meta">
-                    S. Suhail, <span class="me">J. W. P. Zajac</span>, C. Fossum, H. Lowater, C. McCracken, N. Severson, B. Laatsch, A. Narkiewicz-Jodko, B. Johnson, J. Liebau, S. Bhattacharyya, S. Hati
+                    <strong>Authors:</strong> S. Suhail, J. W. P. Zajac, C. Fossum, H. Lowater, C. McCracken, N. Severson, B. Laatsch, A. Narkiewicz-Jodko, B. Johnson, J. Liebau, S. Bhattacharyya, S. Hati
                     <br>
-                    <em>Protein Journal</em>, 2020
+                    <strong>Journal:</strong> Protein Journal, 2020
+                    <br>
+                    <strong>Area:</strong> Virology
                 </div>
-                <a href="https://doi.org/10.1007/s10930-020-09935-8" target="_blank" class="btn btn-primary btn-sm">View Paper</a>
+                <a href="https://doi.org/10.1007/s10930-020-09935-8" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
 
             <div class="pub-card" data-year="2020" data-area="protein-engineering">
@@ -124,13 +159,15 @@
                     Effects of Distal Mutations on Prolyl-Adenylate Formation of Escherichia coli Prolyl-tRNA Synthetase
                 </div>
                 <div class="pub-meta">
-                    <span class="me">J. W. P. Zajac</span>, H. Anderson, L. Adams, D. Wangmo, S. Suhail, A. Almen, L. Berns, B. Coerber, L. Dawson, A. Hunger, J. Jehn., J. Johnson, N. Plack, S. Strasser, M. Williams, S. Bhattacharyya, S. Hati
+                    <strong>Authors:</strong> J. W. P. Zajac, H. Anderson, L. Adams, D. Wangmo, S. Suhail, A. Almen, L. Berns, B. Coerber, L. Dawson, A. Hunger, J. Jehn., J. Johnson, N. Plack, S. Strasser, M. Williams, S. Bhattacharyya, S. Hati
                     <br>
-                    <em>Protein Journal</em>, 2020
+                    <strong>Journal:</strong> Protein Journal, 2020
+                    <br>
+                    <strong>Area:</strong> Protein Engineering
                 </div>
-                <a href="https://doi.org/10.1007/s10930-020-09910-3" target="_blank" class="btn btn-primary btn-sm">View Paper</a>
+                <a href="https://doi.org/10.1007/s10930-020-09910-3" target="_blank" class="btn btn-primary" style="margin-top:10px;">View Paper</a>
             </div>
-        </div>
+
         </div>
     </div>
 </section>
@@ -139,66 +176,11 @@
      everything else stays visible but grayed out. -->
 <script>
 (function () {
-    var PUB_AREAS = {
-        "enhanced-sampling": "Enhanced Sampling",
-        "gpcr-pharmacology": "GPCR Pharmacology",
-        "hydrophobicity": "Hydrophobicity",
-        "molecular-dynamics": "Molecular Dynamics",
-        "network-theory": "Network Theory",
-        "protein-engineering": "Protein Engineering",
-        "protein-solvent": "Protein–Solvent Interactions",
-        "virology": "Virology"
-    };
-
+    var yearFilter = document.getElementById("yearFilter");
+    var areaFilter = document.getElementById("areaFilter");
     var list = document.getElementById("pubList");
-    var status = document.getElementById("pubStatus");
-    var areaGroup = document.getElementById("areaFilter");
-    var yearGroup = document.getElementById("yearFilter");
+    var cards = Array.prototype.slice.call(list.children);
     var tiles = document.querySelectorAll(".portfolio-box[data-area]");
-    var cards = Array.prototype.slice.call(list.querySelectorAll(".pub-card"));
-    var state = { area: "all", year: "all" };
-
-    // Area tags on each card
-    cards.forEach(function (card) {
-        card._areas = card.dataset.area.split(",");
-        var tags = document.createElement("div");
-        tags.className = "pub-tags";
-        card._areas.forEach(function (a) {
-            var tag = document.createElement("span");
-            tag.className = "pub-tag";
-            tag.dataset.area = a;
-            tag.textContent = PUB_AREAS[a] || a;
-            tags.appendChild(tag);
-        });
-        card.querySelector(".pub-meta").after(tags);
-    });
-
-    // Filter chips (years are collected from the cards, newest first)
-    function addChip(group, key, value, label) {
-        var chip = document.createElement("button");
-        chip.type = "button";
-        chip.className = "chip";
-        chip.dataset.value = value;
-        chip.textContent = label;
-        chip.addEventListener("click", function () {
-            setFilter(key, state[key] === value ? "all" : value);
-        });
-        group.appendChild(chip);
-    }
-
-    addChip(areaGroup, "area", "all", "All");
-    Object.keys(PUB_AREAS).forEach(function (a) { addChip(areaGroup, "area", a, PUB_AREAS[a]); });
-
-    var years = [];
-    cards.forEach(function (c) { if (years.indexOf(c.dataset.year) < 0) years.push(c.dataset.year); });
-    years.sort().reverse();
-    addChip(yearGroup, "year", "all", "All");
-    years.forEach(function (y) { addChip(yearGroup, "year", y, y); });
-
-    function matches(card) {
-        return (state.area === "all" || card._areas.indexOf(state.area) >= 0) &&
-               (state.year === "all" || card.dataset.year === state.year);
-    }
 
     // Reorder with a FLIP animation so cards glide to their new spot
     function reorder(ordered) {
@@ -220,55 +202,30 @@
         });
     }
 
-    function render() {
-        var filtering = state.area !== "all" || state.year !== "all";
+    function applyFilters() {
+        var year = yearFilter.value;
+        var area = areaFilter.value;
+        var filtering = year !== "all" || area !== "all";
         var hits = [], misses = [];
 
-        cards.forEach(function (c) {
-            var hit = matches(c);
-            (hit ? hits : misses).push(c);
-            c.classList.toggle("is-match", filtering && hit);
-            c.classList.toggle("is-dimmed", filtering && !hit);
-            c.querySelectorAll(".pub-tag").forEach(function (t) {
-                t.classList.toggle("is-match", t.dataset.area === state.area);
-            });
+        cards.forEach(function (pub) {
+            var matchesYear = (year === "all" || pub.dataset.year === year);
+            var matchesArea = (area === "all" || pub.dataset.area.split(",").indexOf(area) >= 0);
+            var hit = matchesYear && matchesArea;
+            (hit ? hits : misses).push(pub);
+            pub.classList.toggle("is-match", filtering && hit);
+            pub.classList.toggle("is-dimmed", filtering && !hit);
         });
 
         reorder(hits.concat(misses));
 
-        [[areaGroup, state.area], [yearGroup, state.year]].forEach(function (g) {
-            g[0].querySelectorAll(".chip").forEach(function (chip) {
-                var on = chip.dataset.value === g[1];
-                chip.classList.toggle("active", on);
-                chip.setAttribute("aria-pressed", on);
-            });
-        });
-
         Array.prototype.forEach.call(tiles, function (t) {
-            t.classList.toggle("active", t.dataset.area === state.area);
+            t.classList.toggle("active", t.dataset.area === area);
         });
-
-        if (!filtering) {
-            status.innerHTML = "Showing all <strong>" + cards.length + "</strong> papers";
-        } else {
-            var parts = [];
-            if (state.area !== "all") parts.push(PUB_AREAS[state.area]);
-            if (state.year !== "all") parts.push(state.year);
-            status.innerHTML = "<strong>" + hits.length + "</strong> of " + cards.length +
-                " papers match <strong>" + parts.join(" · ") + "</strong>" +
-                '<button type="button" class="pub-clear">Show all</button>';
-            status.querySelector(".pub-clear").addEventListener("click", function () {
-                state.area = "all";
-                state.year = "all";
-                render();
-            });
-        }
     }
 
-    function setFilter(key, value) {
-        state[key] = value;
-        render();
-    }
+    yearFilter.addEventListener("change", applyFilters);
+    areaFilter.addEventListener("change", applyFilters);
 
     // Research tiles: highlight that area's papers and jump to them.
     // Clicking the selected tile again clears the highlight.
@@ -276,16 +233,14 @@
         tile.addEventListener("click", function (e) {
             e.preventDefault();
             var area = tile.dataset.area;
-            var clearing = state.area === area;
-            state.area = clearing ? "all" : area;
-            state.year = "all";
-            render();
+            var clearing = areaFilter.value === area;
+            areaFilter.value = clearing ? "all" : area;
+            yearFilter.value = "all";
+            applyFilters();
             if (!clearing) {
                 document.getElementById("publications").scrollIntoView({ behavior: "smooth" });
             }
         });
     });
-
-    render();
 })();
 </script>
